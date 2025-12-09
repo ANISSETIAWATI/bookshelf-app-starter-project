@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom right, #fff5f7, #fce4ec);
+  color: #2c2c2c;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.7;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  background: url('https://www.transparenttextures.com/patterns/roses.png');
+  opacity: 0.12;
+  z-index: -1;
+}
+
+body::before {
+  top: -50px;
+  left: -60px;
+  width: 420px;
+  height: 420px;
+  background-size: 200px;
+}
+
+body::after {
+  bottom: -80px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  background-size: 260px;
+}
+
+header {
+  background: linear-gradient(135deg, #7b1e2e, #d6336c);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 3rem 0 4rem;
+  box-shadow: 0 8px 20px rgba(123, 30, 46, 0.15);
+  border-bottom-left-radius: 80px 30px;
+  border-bottom-right-radius: 80px 30px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+header::after {
+  content: "❀";
+  position: absolute;
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 0.15);
+  bottom: 15px;
+  right: 60px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  width: 90%;
+  max-width: 1200px;
+  padding: 3.5rem 0;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+section {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(123, 30, 46, 0.15);
+  border: 2px solid #f8c8dc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: "❀";
+  position: absolute;
+  font-size: 5rem;
+  color: rgba(216, 27, 96, 0.08);
+  top: 15px;
+  right: 20px;
+}
+
+section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(123, 30, 46, 0.25);
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 3px solid #d6336c;
+  padding-bottom: 0.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #7b1e2e;
+  font-family: 'Playfair Display', serif;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #d6336c;
+  display: block;
+}
+
+.input-group,
+.checkbox-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#editBookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 1rem;
+  border: 2px solid #f8c8dc;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #fffafc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #d6336c;
+  box-shadow: 0 0 10px #f8c8dc;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(123, 30, 46, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#bookFormSubmit {
+  background: linear-gradient(135deg, #7b1e2e, #d6336c);
+}
+
+#bookFormSubmit:hover {
+  background: linear-gradient(135deg, #5a0e1d, #b71c49);
+  box-shadow: 0 8px 20px rgba(123, 30, 46, 0.3);
+}
+
+#searchSubmit {
+  background: #d6336c;
+}
+
+#searchSubmit:hover {
+  background: #a5113f;
+  box-shadow: 0 8px 20px rgba(123, 30, 46, 0.25);
+}
+
+/* ITEM */
+[data-testid="bookItem"] {
+  background: #ffffff;
+  border: 2px solid #f8c8dc;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 18px rgba(123, 30, 46, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+[data-testid="bookItem"]::after {
+  content: "🌸";
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  opacity: 0.7;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(123, 30, 46, 0.2);
+}
+
+[data-testid="bookItem"] h3 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #7b1e2e;
+  font-weight: 600;
+}
+
+[data-testid="bookItem"] p {
+  color: #7f8c8d;
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+[data-testid="bookItem"] div {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+[data-testid="bookItem"] button {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background-color: #7b1e2e;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+  background-color: #5a0e1d;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background-color: #d6336c;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+  background-color: #a5113f;
+}
+
+[data-testid="bookItemEditButton"] {
+  background-color: #f8c8dc;
+  color: #7b1e2e;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+  background-color: #f48fb1;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  accent-color: #d6336c;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: 500;
+  color: #7b1e2e;
+  cursor: pointer;
+}
+
+#editBookSubmit {
+  background-color: #fff;
+  color: #854c4c;
+}
+
+#editBookSubmit:hover {
+  background-color: #f0f0f0;
+  color: #5a0e1d;
+}
+
+#editBookSubmit:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  box-shadow: 0 8px 20px rgba(33, 136, 56, 0.3);
+}
+
+/* Minimal footer (bottom bar only) */
+.site-footer {
+  background: #fffafc;
+  border-top: 1px solid rgba(123,30,46,0.06);
+  padding: 0.75rem 0;
+  margin-top: 3.25rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-bottom {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #6b3b40;
+  font-size: 0.95rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-weight: 500;
+}
