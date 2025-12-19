@@ -1,0 +1,9 @@
+{
+  "name": "buku-buku-bhs-indo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix Backend start",
+    "install-backend": "npm --prefix Backend install"
+  }
+}

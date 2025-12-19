@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookshelf & Planner</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <script src="lucide.js"></script>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="mobile-header">
+         <span class="font-serif" style="color: var(--primary); font-size: 1.25rem; font-weight: 700;">MyShelf</span>
+         <button onclick="toggleMobileMenu()" style="color: var(--primary);">
+           <i data-lucide="menu" id="mobile-menu-icon"></i>
+         </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div style="padding: 1.5rem; background-color: var(--primary); color: white;">
+            <h1 class="font-serif" style="font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                <i data-lucide="book"></i> MyShelf
+            </h1>
+            <p style="color: #fce7f3; font-size: 0.875rem; margin-top: 0.25rem;">Student Organizer</p>
+        </div>
+        
+        <nav style="flex: 1; padding: 1rem; overflow-y: auto;" class="custom-scrollbar">
+            </nav>
+
+        <div style="padding: 1rem; background-color: #fdf2f8; margin: 1rem; border-radius: 1rem; border: 1px solid #fce7f3;">
+            <h3 style="color: #9d174d; font-weight: 700; font-size: 0.875rem; margin-bottom: 0.75rem; border-bottom: 1px solid #fbcfe8; padding-bottom: 0.5rem;">Statistik Kamu</h3>
+            <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+                <div class="flex justify-between"><span>Buku Selesai:</span> <span id="stat-books" style="font-weight: 700; color: var(--primary);">0</span></div>
+                <div class="flex justify-between"><span>Kelas Hari Ini:</span> <span id="stat-classes" style="font-weight: 700; color: var(--primary);">0</span></div>
+                <div class="flex justify-between"><span>Pengeluaran:</span> <span id="stat-expenses" style="font-weight: 700; color: #ef4444;">Rp 0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="overlay hidden"></div>
+
+    <main class="main-content">
+        <header style="margin-bottom: 2rem;" class="animate-fade-in">
+            <h1 id="page-title" style="font-size: 1.875rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;"></h1>
+            <p id="page-subtitle" style="color: var(--text-muted);"></p>
+        </header>
+
+        <div id="app-content">
+    
+    <div class="grid-2">
+        <section class="card">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                <i data-lucide="plus-circle"></i> Catat Pengeluaran
+            </h3>
+            
+            <form onsubmit="handleSaveMoney(event)">
+                <div class="form-group">
+                    <label>Nama Pengeluaran</label>
+                    <input type="text" id="expense-name" placeholder="Nama pengeluaran">
+    <input type="number" id="expense-amount" placeholder="Nominal">
+    <select id="expense-category">
+        <option value="Makan">Makan</option>
+    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah (Rp)</label>
+                    <input type="number" id="amount" placeholder="0" required>
+                </div>
+
+                <div class="form-group grid-2" style="margin-bottom: 1rem;">
+                    <div>
+                        <label>Kategori</label>
+                        <select id="category">
+                            <option value="Makan">Makan</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Tugas">Tugas</option>
+                            <option value="Hiburan">Hiburan</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Tanggal</label>
+                        <input type="date" id="date">
+                    </div>
+                </div>
+
+                <button type="submit" onclick="handleSaveMoney(event)" style="width: 100%; padding: 0.75rem; background-color: var(--primary); color: white; border: none; border-radius: 0.5rem; font-weight: 700; cursor: pointer;">
+                    Simpan
+                </button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h3>Riwayat Transaksi</h3>
+            <ul id="transaction-list" style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="color: var(--text-muted); text-align: center;">Belum ada data.</li>
+            </ul>
+        </section>
+    </div>
+    </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
