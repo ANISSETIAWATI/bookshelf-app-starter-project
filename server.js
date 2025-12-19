@@ -19,8 +19,12 @@ let subscriptions = [];
 
 const init = async () => {
     const server = Hapi.server({
-        port: 5001,
-        host: 'localhost',
+        // PERBAIKAN 1: Gunakan port dinamis dari Railway
+        port: process.env.PORT || 5001, 
+        
+        // PERBAIKAN 2: Gunakan host '0.0.0.0' agar server bisa diakses dari internet
+        host: '0.0.0.0', 
+        
         routes: {
             cors: {
                 origin: ['*'],
@@ -36,7 +40,7 @@ const init = async () => {
     server.route(activityRoutes);
     server.route(routesSchedule);
 
-    // --- PUSH NOTIFICATION ROUTES (Harus di dalam init) ---
+    // --- PUSH NOTIFICATION ROUTES ---
     server.route({
         method: 'POST',
         path: '/subscribe',
