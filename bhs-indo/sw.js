@@ -1,14 +1,14 @@
 const CACHE_NAME = 'buku-buku-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/main.js',
-  '/styles.css',
-  '/manifest.json',
-  '/sw.js',
-  '/lucide.js',
-  '/icon-192.png',
-  '/icon-512.png'
+  '/bhs-indo/',
+  '/bhs-indo/index.html',
+  '/bhs-indo/main.js',
+  '/bhs-indo/styles.css',
+  '/bhs-indo/manifest.json',
+  '/bhs-indo/sw.js',
+  '/bhs-indo/lucide.js',
+  '/bhs-indo/icon-192.png',
+  '/bhs-indo/icon-512.png'
 ];
 
 // Install: pre-cache asset statis

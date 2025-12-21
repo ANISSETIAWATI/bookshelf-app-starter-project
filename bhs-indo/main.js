@@ -1,11 +1,11 @@
-const API_URL = 'http://localhost:5001/transactions';
-const API_ACTIVITY_URL = 'http://localhost:5001/activities';
-const API_SCHEDULE_URL = 'http://localhost:5001/schedules';
+const API_URL = `${window.location.origin}/transactions`; // Sesuaikan dengan endpoint transaksi
+const API_ACTIVITY_URL = `${window.location.origin}/activities`;
+const API_SCHEDULE_URL = `${window.location.origin}/schedules`;
 
 // --- REGISTRASI PWA UNTUK MODE OFFLINE ---
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js');
+    navigator.serviceWorker.register('/bhs-indo/sw.js');
   });
 }
 
@@ -2474,7 +2474,8 @@ window.addEventListener('online', async () => {
 });
 
 async function sendToServer(data) {
-    return fetch('http://localhost:5001/transactions', {
+    // Gunakan variabel API_URL agar otomatis mengikuti Hugging Face
+    return fetch(`http://localhost:5001/transactions`, { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

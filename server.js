@@ -71,12 +71,14 @@ const init = async () => {
     });
 
     // --- STATIC FILES ---
+    // --- STATIC FILES ---
     server.route({
         method: 'GET',
         path: '/{param*}',
         handler: {
             directory: {
-                path: Path.join(__dirname, 'bhs indo'), 
+                // UBAH BARIS INI: Hapus 'bhs-indo'
+                path: Path.join(__dirname, '.'), 
                 redirectToSlash: true,
                 index: true,
             }
